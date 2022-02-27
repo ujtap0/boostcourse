@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./reset.css">
+  <title>2단 레이아웃</title>
+</head>
+<style>
+  /* html, body, .wrap{
+    height: 100%;
+  } */
+  .header{
+    height: 100px;
+    background-color: lightblue;
+  }
+  .container{
+    position: relative;
+    width: 800px;
+    min-height: 100vh;
+    /* height: 100%는 값은 최상단의 부모로 부터 상속 받기 때문에 부모 height 지정 */
+    margin: -100px auto;
+    /* header의 높이 까지 포함이 되서 min-height: 100%;가 되야 하므로 margin으로 끌어 올리고 padding으로 높이 값 만큼 줌 */
+    padding: 100px 0;
+    box-sizing: border-box;
+    /* padding값이 높이 값에 포함되도록 하기위해서 */
+  }
+  .container::after{
+    display: block;
+    clear: both;
+    content: '';
+  }
+  .content {
+    float: left;
+    width: 500px;
+    height: 550px;
+    background-color: lightgoldenrodyellow;
+  }
+  .aside {
+    float : right;
+    width: 300px;
+    height: 300px;
+    background-color: lightsalmon;
+  }
+   .aside::after{
+    position: absolute;
+    top: 100px;
+    bottom: 100px;
+    right: 300px;
+    content: '';
+    width: 5px;
+    background-color: lightgray;
+  } 
+  .footer{
+    height: 100px;
+    background-color: lightpink;
+  }
+</style>
+<body>
+  <div class="wrap">
+    <div class="header">header</div>
+    <div class="container">
+      <div class="content">content</div>
+      <div class="aside">aside</div>
+    </div>
+      <div class="footer">footer</div>
+  </div>
+</body>
+</html>

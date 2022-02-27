@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마우스 오버 시 버튼 노출</title>
+</head>
+<body>
+  <div class="box test1">
+    <a href="#" class="img_link">
+      <img src="https://image.flaticon.com/icons/png/512/124/124027.png" width="100" height="100" alt="">
+      <span class="alert">99</span>
+    </a>
+    <!--닫기 버튼-->
+    <a href="#" class="del_link">x</a>
+  </div>
+  
+  <div class="box test2">
+    <a href="#" class="img_link">
+      <img src="https://image.flaticon.com/icons/png/512/124/124027.png" width="100" height="100" alt="">
+      <span class="alert">99</span>
+    </a>
+    <a href="#" class="del_link">x</a>
+  </div>
+
+  <style>
+    .box{
+      position: relative;
+      width: 100px;
+      height: 100px;
+    }
+    .box + .box{
+      margin-top: 30px;
+    }
+    .img_link{
+      position: relative;
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+    }
+    .alert{
+      position: absolute;
+      right: 4px;
+      bottom: 4px;
+      padding: 0 10px;
+      font-size: 12px;
+      line-height: 18px;
+      color: #fff;
+      background-color: rgba(255, 0, 0, .5);
+    }
+    .del_link{
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 5px 10px;
+      font-size: 14px;
+      color: #fff;
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, .5);
+    }
+
+    /*x버튼에 오버했을 때 깜빡거림 - 특정 a 태그의 마우스 오버 시 다른a태그 마우스 오버 상태가 풀리는현상*/
+    .test1 .img_link:hover + del_link{
+      display: block;
+    }
+    /*x버튼에 오버했을 때 깜빡거리지 않음*/
+    /*a.img_link, a.del_link 중 하나의 a태그에 마우스 오버하더도 부모인 .test2의 마우스 오버로 인식하기 때문에 깜빡임 X*/
+    .test2: hover > .del_link{
+      display: block;
+    }
+  </style>
+  
+</body>
+</html>

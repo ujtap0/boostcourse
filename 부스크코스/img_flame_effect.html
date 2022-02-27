@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 액자효과</title>
+</head>
+<body>
+  <div class="img_wrap">
+    <img src="./img1/thumb_image_large.jpg" alt="임시 이미지">
+  </div>
+
+  <style>
+    /*img_wrap에 프레임 효과 넣어줌*/
+    .img_wrap{
+      position:relative;
+      /*이미지 사이즈와 동일한 넓이와 높이값*/
+      width: 200px;
+      height: 150px;
+    }
+    .img_wrap::after{
+      /*시멘틱 마크업을 위한 가상선택자 사용 - position이나 display 속성 들어가야함*/
+      position : absolute;
+      /*부모요소와 너비와 높이값을 맞추기 위해 위치값 설정*/
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</body>
+</html>

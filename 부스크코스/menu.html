@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./reset.css">
+  <title>1단 메뉴</title>
+</head>
+<body>
+  <div class="wrap">
+    <ul class="menu">
+      <li class="menu_item"><a href="#" class="menu_link">메일</a></li>
+      <li class="menu_item active"><a href="#" class="menu_link">카페</a></li>
+      <li class="menu_item"><a href="#" class="menu_link">소프트웨어</a></li>
+      <li class="menu_item"><a href="#" class="menu_link">지식백과</a></li>
+      <li class="menu_item"><a href="#" class="menu_link">영화</a></li>
+    </ul>
+  </div>
+
+
+  <style>
+    .wrap{
+      max-width: 700px;
+      min-width: 500px;
+      margin: 5px;
+    }
+    .menu{
+      display:table;
+      /* 메뉴의 간격을 모두 동일하게 만들어 주기 위해 table 속성과 table-layout: fixed */
+      /* table-latout: fixed를 안줬으면 텍스트의 길이비율로 간격생성되서 균등하지 않음 */
+      table-layout: fixed;
+      width: 100%;
+      /* 부모요소의 너비값과 동일하도록 상속받음 */
+    }
+    .menu_item{
+      display: table-cell;
+    }
+    .menu_link{
+      display: block;
+      /* a태그에 diplay block을 줘서 table cell의 너비에 꽉맞도록 */
+      height: 36px;
+      border: 1px solid #ddd;
+      font-size: 12px;
+      line-height: 36px;
+      color: #333;
+      text-align: center;
+    }
+    .menu_item + .menu_item .menu_link{
+       margin-left: -1px;
+      /* 보더 겹침 현상 : 메뉴링크에 준 border가 중첩이 되서 2px로 보임 1px로 만들어 주기 위해 왼쪽으로 1px씩 당김 */
+    }
+    .menu_item:hover .menu_link{
+      color: green;
+      font-weight: bold;
+    }
+    .menu_item.active .menu_link{
+      position: relative;
+      /* 활성화됨 메뉴의 우측 외곽선이 사라짐 
+      margin-left: -1px 로 오른쪽 아이템의 border가 위로 겹쳐지게 되었는데
+      오른쪽 아이템의 z-index: 값이 더 크므로 위로 올라오게 되는데
+      활성화 된 메뉴의 우측외곽선이 노출되지 않아서
+      position:relative를 했을 때 z-index 값이 새로 생성
+      해당 요소가 제일 위로 올라오게 됨 */
+      border-color: #555;
+      font-weight: bold;
+      color: #fff;
+      background-color: gray;
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>텍스트 말줄임</title>
+</head>
+<body>
+  <p class="elip1">
+    가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하
+  </p>
+  <p class="elip2">
+    가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하
+  </p>
+  <p class="elip3">
+    가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하
+  </p>
+
+  <style>
+    p{
+      width: 200px;
+      background-color: yellow;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .elip1{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .elip2{
+      /*i계열이나 파이어폭스에서 여러줄 말줄임 할때 height값 꼭 지정*/
+      /*line-height * -webkit-line-clamp 값을 height로*/
+      /*hegiht를 지정했을 때는 글자가 줄어들었을 때는 고정 높이 값으로 보여지기 때문에 max-height가 맞음*/
+      max-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /*웹킷계열 브라우저에서 여러줄 말줄임 사용할 때*/
+      /**/
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      /*보여줄 라인수*/
+      -webkit-line-clamp : 2;
+    }
+    .elip3{
+      max-height: 60px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /*i나 파이어폭스에서는 ...처리 안나타남*/
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+  </style>
+</body>
+</html>

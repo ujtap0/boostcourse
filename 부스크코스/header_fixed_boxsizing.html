@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./reset.css">
+  <title>상단 고정(box-sizing) 레이아웃</title>
+</head>
+<style>
+  html, body{
+    height: 100%;
+  }
+  .wrap{
+    height: 100%;
+    min-width: 800px;
+    /* header와 footer가 줄어 들 때는 content의 크기 만큼 줄어들었으면 좋겠음 */
+    text-align: center;
+  }
+  .header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 100px;
+    background-color: lightblue;
+  }
+  .container{
+    min-height: 100%;
+    margin-top : -100px;
+    padding-top: 200px;
+    box-sizing: border-box;
+  }
+  .content {
+    max-width: 1200px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: lightgoldenrodyellow;
+  }
+  .footer{
+    height: 100px;
+    background-color: lightpink;
+  }
+</style>
+<body>
+  <div class="wrap">
+    <div class="header">header</div>
+    <div class="container">
+      <div class="content">content</div>
+    </div>
+    <div class="footer">footer</div>
+  </div>
+</body>
+</html>

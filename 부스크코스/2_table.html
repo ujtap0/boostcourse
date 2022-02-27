@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./reset.css">
+  <title>2단 레이아웃</title>
+</head>
+<style>
+  html, body, .wrap{
+    height: 100%;
+  }
+  .header{
+    height: 100px;
+    background-color: lightblue;
+  }
+  .container{
+    display : table;
+    table-layout: fixed;
+    width: 800px;
+    min-height: 100%;
+    margin: -100px auto;
+    padding: 100px 0;
+    box-sizing: border-box;
+  }
+  .content {
+    display: table-cell;
+    width: 500px;
+    border-right: 5px solid lightgray;
+    background-color: lightgoldenrodyellow;
+  }
+  .aside {
+    display: table-cell;
+    height: 300px;
+    background-color: lightsalmon
+  }
+  .footer{
+    height: 100px;
+    background-color: lightpink;
+  }
+</style>
+<body>
+  <div class="wrap">
+    <div class="header">header</div>
+    <div class="container">
+      <div class="content">content</div>
+      <div class="aside">aside</div>
+    </div>
+      <div class="footer">footer</div>
+  </div>
+
+
+  <!-- float vs table-cell
+  container 길이가 짧아지거나 길어지면 table 높이를 상속받아서 table-cell들이 높이 갚이 자동 적용
+    table-cell의 높이가 알아서 상속받기 때문에 구분선은 border로 받아도 됨
+-->
+</body>
+</html>

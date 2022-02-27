@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./reset.css">
+  <title>2단메뉴</title>
+</head>
+<body>
+  <div class="wrap">
+    <ul class="menu">
+      <li class="menu_item active">
+        <a href="#" class="menu_link">웹툰</a>
+        <ul class="submenu">
+          <li class="submenu_item active">
+            <a href="#" class="submenu_link"><span>요일별</span></a>
+          </li>
+          <li class="submenu_item">
+            <a href="#" class="submenu_link"><span>장르별</span></a>
+          </li>
+          <li class="submenu_item">
+            <a href="#" class="submenu_link"><span>작가별</span></a>
+          </li>
+          <li class="submenu_item">
+            <a href="#" class="submenu_link"><span>연도별</span></a>
+          </li>
+          <li class="submenu_item">
+            <a href="#" class="submenu_link"><span>작품별</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="menu_item">
+        <a href="#" class="menu_link">블로그</a>
+      </li>
+      <li class="menu_item">
+        <a href="#" class="menu_link">지식백과</a>
+        <ul class="submenu">
+          <li class="submenu_item active">
+            <a href="#" class="submenu_link"><span>건강백과</span></a>
+          </li>
+          <li class="submenu_item">
+            <a href="#" class="submenu_link"><span>밀리터리</span></a>
+          </li>
+          <li class="submenu_item">
+            <a href="#" class="submenu_link"><span>음식백과</span></a>
+          </li>
+          <li class="submenu_item">
+            <a href="#" class="submenu_link"><span>동물백과</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="menu_item">
+        <a href="#" class="menu_link">카페</a>
+      </li>
+    </ul>
+  </div>
+
+  <style>
+    .menu{
+      width: 700px;
+      margin: 20px auto 0;
+      text-align: center;
+      /* text만 중앙정렬 되는 것이 아니라 inline요소도 중앙정렬 됨 */
+    }
+    .menu_item{
+      display: inline-block;
+    }
+    .menu_link{
+      display: block;
+      padding: 13px 20px;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: bold;
+      color: #444;
+    }
+    .menu_item:hover .menu_link,
+    .menu_item.active .menu_link{
+      color: green;
+    }
+    .menu_item.active .submenu{
+      display: block;
+    }
+    .submenu{
+      display: none;
+      position:absolute;
+      /* .menu_item에 position relative를 주게 되면 화면 기준 중앙정렬을 할 수 없음 */
+      left: 0;
+      width: 100%;
+      min-width: 700px;
+      /* inline-block으로 인해 창이 줄어들었을 때 2줄이 되므로 min-width 정해줌 */
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+    .submenu_item{
+      display: inline-block;
+    }
+    .submenu_link{
+      display: block;
+      padding: 15px 35px;
+      font-size: 17px;
+      line-height: 20px;
+      color: #333;
+    }
+    .submenu_item:hover .submenu_link,
+    .submenu_item.active .submenu_link{
+      font-weight: bold;
+      color: green;
+    }
+    .submenu_link span{
+      position: relative;
+    }
+    .submenu_item:hover span::after,
+    .submenu_item.active span::after{
+      position :absolute;
+      content: '';
+      right: 0;
+      bottom: -15px;
+      left: 0;
+      /* 유지보수 하기 곤란 right: 0과 left: 0을 줘서 width길이로 border값 주었고 글자 너비만큼
+      주려면 글자 너비와 같도록 넓이 지정해 주면 되지만 일일히 지정해 줘야 되기 때문에 불편하다
+      그래서 span 추가
+      */
+      border-bottom: 2px solid green;
+    }
+  </style>
+</body>
+</html>
